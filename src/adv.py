@@ -1,4 +1,7 @@
 from room import Room
+# from item import Item
+from player import Player
+# import textwrap
 
 # Declare all the rooms
 
@@ -38,6 +41,9 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+# player = Player(room['outside'])
+player = Player(input("What is your name?: "), room["outside"])
+
 
 # Write a loop that:
 #
@@ -49,3 +55,232 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+    print(player.current_room)
+    cmd = input("-> ").lower()
+    if cmd in ["n", "e", "s", "w"]:
+        current_room = player.current_room
+        next_room = getattr(current_room, f"{cmd}_to")
+        if next_room is not None:
+            player.current_room = next_room
+        else:
+            print("Nothing there")
+    elif cmd == "q":
+        print("Byye!")
+        exit()
+    else:
+        print("invalid entry, please try again.")
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+""""
+# while True:
+#     #key command input
+#     cmd = input("To Move between rooms, please use: 'n', 'e', 's', 'w': \n~~~>").lower()
+#     if cmd in ["n", "e", "s", "w"]:
+#         #moves player to that room
+#         player.travel(cmd)
+#     elif cmd == "q":
+#         print("See you next time!")
+#         exit()
+#     else:
+#         print("Please enter a direction to Move or 'q' Quit.")
+""""
